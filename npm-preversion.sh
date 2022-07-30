@@ -24,9 +24,9 @@ git reset --hard origin/master
 
 # bump version
 nextMinorVersion=$(echo $(npm version minor) | cut -d "v" -f 1)
-npm version $nextMinorVersion
+echo $nextMinorVersion
+npm version "$nextMinorVersion"
 # delete local redundant tag
 git tag -d $nextMinorVersion
 
-echo $nextMinorVersion
 
