@@ -28,7 +28,7 @@ echo "run "
 # bump version
 nextMinorVersion=$(echo $(npm version minor) | cut -d "v" -f 2)
 echo "aaaaaaaaaa:" $nextMinorVersion
-npm version "$nextMinorVersion"
+# npm version "$nextMinorVersion"
 # delete local redundant tag
 git tag -d $nextMinorVersion
 
