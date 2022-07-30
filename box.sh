@@ -14,10 +14,3 @@ function box()
  -${b//?/-}-"
   tput sgr 0
 }
-
-
-RED='\033[0;31m'
-NC='\033[0m' # No Color
-test="I \x1B[0;30;47m love${NC} Stack Overflow\n"
-
-box $test

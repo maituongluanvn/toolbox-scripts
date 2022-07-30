@@ -21,7 +21,10 @@ git tag -d "v$nextMinorVersion"
 
 git push
 
-echo "aaaaaaaaaa:" $nextMinorVersion
-echo "packageVersion:" $packageVersion
+# echo "aaaaaaaaaa:" $nextMinorVersion
+# echo "packageVersion:" $packageVersion
+packageName=$(npm run env | grep "npm_package_name" | awk -F "=" '{print $2}')
 
-box "Current package version: $packgeVersion" "Next package version: $nextMinorVersion"
+box "Package name: $packageName" \
+    "Next package version: $nextMinorVersion" \
+    "Current package version: $packageVersion"
