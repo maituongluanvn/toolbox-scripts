@@ -1,9 +1,3 @@
-# color
-water=123
-purple=125
-blue=$(tput setaf 4)
-
-
 function box()
 {
   local s=("$@") b w
