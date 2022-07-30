@@ -9,8 +9,12 @@ packageVersion=$(cat package.json \
 
 minorVersion=$(echo "$packageVersion" | cut -d "." -f 2)
 
-echo "********** Current package version:" $packageVersion
-echo "********** minorVersion:" $minorVersion
+# increase minor
+nextMinorVersion=$(expr $minorVersion + 1)
+
+echo "packageVersion:" $packageVersion
+echo "minorVersion:" $minorVersion
+echo "nextMinorVersion:" $nextMinorVersion
 
 # git tag $packageVersion
 # git push origin $packageVersion
@@ -19,6 +23,6 @@ echo "********** minorVersion:" $minorVersion
 git reset --hard origin/master
 
 # bump version
-# nextMinorVersion=$(npm version minor)
-nextVersion=$(echo $(npm version minor) | cut -d "v" -f 1)
-echo "********** Next version" $nextVersion
+npm version $nextMinorVersion
+
+echo $nextMinorVersion
