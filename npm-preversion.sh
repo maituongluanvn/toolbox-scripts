@@ -26,7 +26,7 @@ git tag | xargs git tag -d
 
 # bump version
 nextMinorVersion=$(echo $(npm version minor) | cut -d "v" -f 1)
-echo $nextMinorVersion
+echo "aaaaaaaaaa:" $nextMinorVersion
 npm version "$nextMinorVersion"
 # delete local redundant tag
 git tag -d $nextMinorVersion
