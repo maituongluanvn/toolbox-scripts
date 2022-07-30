@@ -1,3 +1,7 @@
+# reference: https://stackoverflow.com/questions/12768907/how-can-i-align-the-columns-of-tables-in-bash
+#!/bin/sh
+source ./color.sh
+
 function printTable()
 {
     local -r delimiter="${1}"
@@ -71,7 +75,7 @@ function repeatString()
     if [[ "${string}" != '' && "${numberToRepeat}" =~ ^[1-9][0-9]*$ ]]
     then
         local -r result="$(printf "%${numberToRepeat}s")"
-        echo  "${result// /${string}}"
+        printf  "${result// /${string}}"
     fi
 }
 
@@ -93,3 +97,9 @@ function trimString()
 
     sed 's,^[[:blank:]]*,,' <<< "${string}" | sed 's,[[:blank:]]*$,,'
 }
+
+# debug
+
+printTable ',' \
+"Package name , Current package version , Next package version
+content , content , content"

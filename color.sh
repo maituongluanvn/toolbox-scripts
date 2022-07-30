@@ -1,4 +1,6 @@
 # color
 water=123
 purple=125
-blue=$(tput setaf 4)
+
+# color table
+tBlue=$(tput setaf 125)
