@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# get latest source code from master
+git reset --hard origin/master
+
 packageVersion=$(cat package.json \
                 | grep version \
                 | head -1 \
@@ -18,9 +21,6 @@ echo "minorVersion:" $minorVersion
 
 # git tag $packageVersion
 # git push origin $packageVersion
-
-# get latest source code from master
-git reset --hard origin/master
 
 git tag | xargs git tag -d
 
