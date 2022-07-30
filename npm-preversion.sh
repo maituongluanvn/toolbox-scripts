@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-source ./box.sh
+source ./table.sh
 # get latest source code from master
 git reset --hard origin/master
 
@@ -25,6 +25,8 @@ git push
 # echo "packageVersion:" $packageVersion
 packageName=$(npm run env | grep "npm_package_name" | awk -F "=" '{print $2}')
 
-box "Package name: $packageName" \
-    "Next package version: $nextMinorVersion" \
-    "Current package version: $packageVersion"
+# box "Package name: $packageName" \
+#     "Next package version: $nextMinorVersion" \
+#     "Current package version: $packageVersion"
+
+printTable ',' "Package name , Current package version , Next package version \n $packageName , $packageVersion , $nextMinorVersion"
