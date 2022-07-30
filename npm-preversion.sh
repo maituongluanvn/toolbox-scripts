@@ -12,24 +12,15 @@ packageVersion=$(cat package.json \
 
 minorVersion=$(echo "$packageVersion" | cut -d "." -f 2)
 
-# increase minor
-# nextMinorVersion=$(expr $minorVersion + 1)
+# tag package
+git tag $packageVersion
+git push origin $packageVersion
 
-echo "packageVersion:" $packageVersion
-echo "minorVersion:" $minorVersion
-# echo "nextMinorVersion:" $nextMinorVersion
-
-# git tag $packageVersion
-# git push origin $packageVersion
-
-git tag | xargs git tag -d
-
-echo "run "
 # bump version
 nextMinorVersion=$(echo $(npm version minor) | cut -d "v" -f 2)
-echo "aaaaaaaaaa:" $nextMinorVersion
-# npm version "$nextMinorVersion"
 # delete local redundant tag
 git tag -d "v$nextMinorVersion"
 
-
+echo "aaaaaaaaaa:" $nextMinorVersion
+echo "packageVersion:" $packageVersion
+echo "minorVersion:" $minorVersion
