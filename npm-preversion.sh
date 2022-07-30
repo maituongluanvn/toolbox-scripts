@@ -24,8 +24,9 @@ git reset --hard origin/master
 
 git tag | xargs git tag -d
 
+echo "run "
 # bump version
-nextMinorVersion=$(echo $(<<<npm version minor) | cut -d "v" -f 2)
+nextMinorVersion=$(echo $(npm version minor) | cut -d "v" -f 2)
 echo "aaaaaaaaaa:" $nextMinorVersion
 npm version "$nextMinorVersion"
 # delete local redundant tag
