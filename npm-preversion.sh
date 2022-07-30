@@ -29,4 +29,5 @@ packageName=$(npm run env | grep "npm_package_name" | awk -F "=" '{print $2}')
 #     "Next package version: $nextMinorVersion" \
 #     "Current package version: $packageVersion"
 
-printTable ',' "Package name , Current package version , Next package version \n $packageName , $packageVersion , $nextMinorVersion"
+printTable ',' "Package name , Current package version , Next package version
+                 $packageName , $packageVersion , $nextMinorVersion"
