@@ -8,14 +8,17 @@ packageVersion=$(cat package.json \
                 | sed 's/[",]//g')
 
 minorVersion=$(echo "$packageVersion" | cut -d "." -f 2)
-nextMinorVersion=$(expr $minorVersion + 1)
 
 echo "packageVersion:" $packageVersion
 echo "minorVersion:" $minorVersion
-echo "nextMinorVersion:" $nextMinorVersion
 
-git tag $packageVersion
-git push origin $packageVersion
+# git tag $packageVersion
+# git push origin $packageVersion
+
+# get latest source code from master
+# git reset --hard origin/master
 
 # bump version
-npm version 
+# nextMinorVersion=$(npm version minor)
+nextMinorVersion=$(echo $(npm version minor) | cut -d "v" -f 1)
+echo $nextMinorVersion
