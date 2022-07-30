@@ -23,7 +23,7 @@ echo "minorVersion:" $minorVersion
 git reset --hard origin/master
 
 # bump version
-# npm version $nextMinorVersion
+npm version minor
 nextMinorVersion=$($(npm version minor))
-
 echo $nextMinorVersion
+
