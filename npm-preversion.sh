@@ -10,8 +10,6 @@ packageVersion=$(cat package.json \
                 | awk -F: '{ print $2 }' \
                 | sed 's/[",]//g')
 
-minorVersion=$(echo "$packageVersion" | cut -d "." -f 2)
-
 # tag package
 git tag $packageVersion
 git push origin $packageVersion
@@ -21,6 +19,9 @@ nextMinorVersion=$(echo $(npm version minor) | cut -d "v" -f 2)
 # delete local redundant tag
 git tag -d "v$nextMinorVersion"
 
+git push
+
 echo "aaaaaaaaaa:" $nextMinorVersion
 echo "packageVersion:" $packageVersion
-echo "minorVersion:" $minorVersion
+
+printf "|%-50s|\n" "This is output of script"
