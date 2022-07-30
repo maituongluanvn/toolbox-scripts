@@ -1,4 +1,4 @@
-function box_out()
+function box()
 {
   local s=("$@") b w
   for l in "${s[@]}"; do
@@ -15,8 +15,9 @@ function box_out()
   tput sgr 0
 }
 
+
 RED='\033[0;31m'
 NC='\033[0m' # No Color
-test="I ${RED}love${NC} Stack Overflow\n"
+test="I \x1B[0;30;47m love${NC} Stack Overflow\n"
 
-box_out $test
+box $test

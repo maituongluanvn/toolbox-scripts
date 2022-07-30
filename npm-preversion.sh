@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-
+source ./box.sh
 # get latest source code from master
 git reset --hard origin/master
 
@@ -24,4 +24,4 @@ git push
 echo "aaaaaaaaaa:" $nextMinorVersion
 echo "packageVersion:" $packageVersion
 
-printf "|%-50s|\n" "This is output of script"
+box "Current package version: $packgeVersion" "Next package version: $nextMinorVersion"
