@@ -22,6 +22,8 @@ echo "minorVersion:" $minorVersion
 # get latest source code from master
 git reset --hard origin/master
 
+git tag | xargs git tag -d
+
 # bump version
 nextMinorVersion=$(echo $(npm version minor) | cut -d "v" -f 1)
 echo $nextMinorVersion
