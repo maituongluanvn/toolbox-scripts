@@ -100,6 +100,6 @@ function trimString()
 
 # debug
 
-printTable ',' \
-"Package name , Current package version , Next package version
-content , content , content"
+# printTable ',' \
+# "Package name , Current package version , Next package version
+# content , content , content"

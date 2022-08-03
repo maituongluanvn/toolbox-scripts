@@ -27,6 +27,6 @@ jobs:
         cache: 'npm'
     - name: Run tag & bump version script
       run: |
-        ls
-        sh ../.ci/npm-preversion.sh
-      shell: sh
+        cat ./ci/npm-preversion.sh 
+        sh ./ci/npm-preversion.sh
+      shell: bash
