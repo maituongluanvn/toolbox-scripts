@@ -8,6 +8,8 @@ packageVersion=$(cat package.json \
                 | awk -F: '{ print $2 }' \
                 | sed 's/[",]//g')
 echo -n "Current package version:" $packageVersion
+npmVersion=$(npm -version)
+echo -n "Npm version:" $npmVersion
 # tag package
 git tag $packageVersion
 git push origin $packageVersion
