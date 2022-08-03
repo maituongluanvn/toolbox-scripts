@@ -20,14 +20,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        path: master
+    - uses: fregante/setup-git-user@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm -version
     - name: Run tag & bump version script
       run: |
         sh ./ci/npm-preversion.sh
