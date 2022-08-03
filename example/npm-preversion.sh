@@ -4,7 +4,7 @@ source ./table.sh
 # get latest source code from master
 git reset --hard origin/master
 
-packageVersion=$(cat package.json \
+packageVersion=$(cat ../package.json \
                 | grep version \
                 | head -1 \
                 | awk -F: '{ print $2 }' \
